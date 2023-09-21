@@ -1,7 +1,20 @@
-/******* Change Box Model ***************/
+/* ****** Change Box Model ************** */
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
+/* header */
+header a{
+  text-decoration: none;
+  color: black;
+}
+.siteName {
+  font-size: 50px;
+}
+
+#tools{
+  font-size: 20px;
+  float: right;
+}
