@@ -150,4 +150,21 @@ header a{
     height: 100%;
     width: 10%;
    }
+  
+   img#car{
+    margin-left: 100px;
+   }
+
+   #dmc{
+    margin-left:10px;
+   }
+
+   #dmcheader{
+    margin-left:50px;
+   }
+  
+  
+   #button{
+    margin-left:50px;
+   }
 }
