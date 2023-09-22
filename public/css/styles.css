@@ -88,9 +88,14 @@ header a{
 }
 
  /* body - Delorean Upgradres */
+ #upgrades{
+  margin-top:40px;
+}
+
  .grid-container {
   display: grid;
   gap: 50px;
+  justify-content: center; 
 }
 
 .item1 {
@@ -121,11 +126,17 @@ header a{
     grid-row-end: 3;
 }
 
-#upgrades{
-  margin-top:40px;
+#upgrades a{
+  position: relative;
+  bottom: -80px;
 }
 
+#upgrades img{
+  position: relative;
+  bottom: 0px;
+}
 
-img#upgrades{
-  background-color: red;
+/* footer */
+.copyright{
+  margin-top: 100px;
 }
