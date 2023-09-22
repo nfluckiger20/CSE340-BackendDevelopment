@@ -45,3 +45,37 @@ header a{
   text-decoration: none;
   color:white;
  }
+
+ /* body */
+ img#car{
+  max-width: 100%;
+  height: auto;
+ }
+
+ h1{
+  font-size: 30px;
+ }
+
+ #list{
+  margin-top:-220px;
+ }
+
+ #dmc{
+  color:#61B8B7;
+  opacity: none;
+  margin-left:-30px;
+ }
+
+ #dmcheader{
+  color:#61B8B7;
+  opacity: none;
+  margin-left:10px;
+ }
+
+ #button{
+  background-color: #61B8B7;
+  border:none;
+  height:30px;
+  width:100px;
+  margin-left:10px;
+ }
