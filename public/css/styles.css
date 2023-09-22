@@ -28,6 +28,8 @@ header a{
   color:white;
   background-color: black;
   padding:10px;
+  position: relative;
+  text-align: center;
  }
 
  nav ul{
@@ -139,4 +141,13 @@ header a{
 /* footer */
 .copyright{
   margin-top: 100px;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (min-width: 600px) {
+  nav li{
+    display: inline-block;
+    height: 100%;
+    width: 10%;
+   }
 }
