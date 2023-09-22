@@ -41,12 +41,7 @@ header a{
   margin-right:20px;
  }
 
- nav a{
-  text-decoration: none;
-  color:white;
- }
-
- /* body */
+ /* body - DMC Deloarean */
  img#car{
   max-width: 100%;
   height: auto;
@@ -79,3 +74,17 @@ header a{
   width:100px;
   margin-left:10px;
  }
+
+ /* body - DMC Delorean Reviews */
+#reviews{
+  margin-left:10px;
+  margin-top:100px;
+}
+
+#reviewslist{
+  margin-left:-20px;
+  list-style: circle;
+  line-height: 30px;
+}
+
+ /* body - Delorean Upgradres */
