@@ -163,8 +163,25 @@ header a{
     margin-left:50px;
    }
   
-  
    #button{
     margin-left:50px;
    }
+
+   #reviews{
+    float:right;
+    margin-top: 130px;
+  }
+  
+  #reviewslist{
+    float:right;
+}
+
+#upgrades a{
+margin-right:120px;
+}
+
+#upgrades {
+  margin-top: 130px;
+  }
+
 }
