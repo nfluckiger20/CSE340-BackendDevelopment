@@ -194,6 +194,11 @@ header a{
   padding: .6em;
 }
 
+
+#upgradesh1{
+  text-align: left;
+}
+
 /* footer */
 .copyright{
   margin-top: 100px;
