@@ -41,3 +41,6 @@ VALUES ('Custon'),
     ('SUV'),
     ('Truck'),
     ('Sedan');
+SELECT *
+FROM public.inventory
+ORDER BY inv_id ASC
