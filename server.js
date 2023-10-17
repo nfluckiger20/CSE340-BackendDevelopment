@@ -12,6 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController.js")
 const utilities = require("./utilities/index.js")
+const inventoryRoute = require("./routes/inventoryRoute.js")
 
 /* ***********************
  * View Engine and Templates
