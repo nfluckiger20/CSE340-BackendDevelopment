@@ -20,4 +20,23 @@ invCont.buildByClassificationId = async function (req, res, next) {
 }
 
 
+/* ***************************
+ *  Build inventory: Assignment 3
+ * ************************** */
+invCont.buildByInventoryId = async function (req, res, next) {
+  try{
+    const vehicleId = req.params.vehicleId;
+    const vehicleData = await invModel.getVehicleByInventoryId(vehicleId);
+    
+    if(vehicleData){
+      res.status(404).send('Not found!');
+      return;
+      }
+    }
+    catch(error){
+      next(error);
+    }
+  }
+
+
 module.exports = invCont
