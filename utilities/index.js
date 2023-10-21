@@ -94,3 +94,17 @@ module.exports = {
 buildInventoryGrid
 }
 
+invModel.getVehicleByInventoryId = async function (req, res, next) {
+  const vehicleData = {
+    make: "Toyota",
+    model: "Camry",
+    price: "$5,000",
+    year: 2022,
+    color: "Silver",
+    mileage: "80,000"
+  };
+  
+  const vehicleHTML = buildInventoryGrid(vehicleData);
+  document.getElementById("vehicle").innerHTML = vehicleHTML;
+  }
+
