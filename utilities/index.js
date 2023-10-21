@@ -65,3 +65,32 @@ Util.buildClassificationGrid = async function(data){
  * General Error Handling
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
+
+/* **************************************
+* Build the inventory view HTML
+* ************************************ */
+function buildInventoryGrid(vehicleData){
+ // Make sure vehicleData contains the correct data: make, model, year, price, mileage 
+ if (!vehicleData || typeof vehicleData !== 'object') {
+  return '<p>No vehicle found.</p>';
+}
+
+// HTML connection to vehicle information
+const html = `
+  <div class="vehicle">
+    <h2>${vehicleData.make} ${vehicleData.model}</h2>
+    <h3>Color: ${vehicleData.price}</h3>
+    <p>Year: ${vehicleData.year}</p>
+    <p>Color: ${vehicleData.color}</p>
+    <p>Color: ${vehicleData.mileage}</p>
+  </div>
+`;
+
+return html;
+}
+
+module.exports = {
+buildInventoryGrid
+}
+

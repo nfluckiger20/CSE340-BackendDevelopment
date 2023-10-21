@@ -26,9 +26,11 @@ app.set("layout", "./layouts/layout") // not at views root
  *************************/
 app.use(require("./routes/static"))
 //Index route
-app.get("/", utilities.handleErrors(baseController.buildHome));
+app.get("./utilities/index.js", utilities.handleErrors(baseController.buildHome));
+
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
