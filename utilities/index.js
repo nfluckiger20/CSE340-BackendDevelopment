@@ -70,41 +70,24 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 /* **************************************
 * Build the inventory view HTML
 * ************************************ */
-function buildInventoryGrid(vehicleData){
- // Make sure vehicleData contains the correct data: make, model, year, price, mileage 
- if (!vehicleData || typeof vehicleData !== 'object') {
-  return '<p>No vehicle found.</p>';
-}
+// Util.buildInventoryGrid(vehicleData){
+//  // Make sure vehicleData contains the correct data: make, model, year, price, mileage 
+//  if (!vehicleData || typeof vehicleData !== 'object') {
+//   return '<p>No vehicle found.</p>';
+// }
 
-// HTML connection to vehicle information
-const html = `
-  <div class="vehicle">
-    <h2>${vehicleData.make} ${vehicleData.model}</h2>
-    <h3>Color: ${vehicleData.price}</h3>
-    <p>Year: ${vehicleData.year}</p>
-    <p>Color: ${vehicleData.color}</p>
-    <p>Color: ${vehicleData.mileage}</p>
-  </div>
-`;
+// // HTML connection to vehicle information
+// const html = `
+//   <div class="vehicle">
+//     <h2>${vehicleData.make} ${vehicleData.model}</h2>
+//     <h3>Color: ${vehicleData.price}</h3>
+//     <p>Year: ${vehicleData.year}</p>
+//     <p>Color: ${vehicleData.color}</p>
+//     <p>Color: ${vehicleData.mileage}</p>
+//   </div>
+// `;
 
-return html;
-}
+// return html;
+// }
 
-module.exports = {
-buildInventoryGrid
-}
-
-invModel.getVehicleByInventoryId = async function (req, res, next) {
-  const vehicleData = {
-    make: "Toyota",
-    model: "Camry",
-    price: "$5,000",
-    year: 2022,
-    color: "Silver",
-    mileage: "80,000"
-  };
-  
-  const vehicleHTML = buildInventoryGrid(vehicleData);
-  document.getElementById("vehicle").innerHTML = vehicleHTML;
-  }
 
