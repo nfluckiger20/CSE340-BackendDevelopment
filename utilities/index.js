@@ -24,8 +24,6 @@ Util.getNav = async function (req, res, next) {
   return list
 }
 
-module.exports = Util
-
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
@@ -64,30 +62,32 @@ Util.buildClassificationGrid = async function(data){
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
 
 /* **************************************
 * Build the inventory view HTML
 * ************************************ */
-// Util.buildInventoryGrid(vehicleData){
-//  // Make sure vehicleData contains the correct data: make, model, year, price, mileage 
-//  if (!vehicleData || typeof vehicleData !== 'object') {
-//   return '<p>No vehicle found.</p>';
-// }
+ Util.buildInventoryGrid= async function (vehicleData) {
+  //  Make sure vehicleData contains the correct data: make, model, year, price, mileage 
+   if (!vehicleData || typeof vehicleData !== 'object') {
+      return '<p>No vehicle found.</p>';
+}
 
-// // HTML connection to vehicle information
-// const html = `
-//   <div class="vehicle">
-//     <h2>${vehicleData.make} ${vehicleData.model}</h2>
-//     <h3>Color: ${vehicleData.price}</h3>
-//     <p>Year: ${vehicleData.year}</p>
-//     <p>Color: ${vehicleData.color}</p>
-//     <p>Color: ${vehicleData.mileage}</p>
-//   </div>
-// `;
+// HTML connection to vehicle information
+const html = `
+  <div class="vehicle">
+    <h2>${vehicleData.make} ${vehicleData.model}</h2>
+    <h3>Price: ${vehicleData.price}</h3>
+    <p>Year: ${vehicleData.year}</p>
+    <p>Color: ${vehicleData.color}</p>
+    <p>Mileage: ${vehicleData.mileage}</p>
+  </div>
+`;
 
-// return html;
-// }
+// Set up price in activities and mileage 
+return html;
+}
 
 
+module.exports = Util
