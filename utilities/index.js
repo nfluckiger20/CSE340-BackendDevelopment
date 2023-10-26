@@ -88,5 +88,11 @@ const html = `
 return html;
 }
 
+// Get inventory
+Util.getInventoryGrid = async function(inv_id){
+  let data = await invModel.getInventoryById(inv_id);
+  let detailView = await utilities.buildInventoryGrid(data);
+  return {data,detailView};
+}
 
 module.exports = Util
