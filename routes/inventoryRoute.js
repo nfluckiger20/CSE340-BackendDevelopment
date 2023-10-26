@@ -9,4 +9,6 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 // Assignment 3 inventory route
 router.get("/detail/:inv_id", invController.buildByInventoryId);
 
+// Route to build error in InventoryController then server.js
+
 module.exports = router;

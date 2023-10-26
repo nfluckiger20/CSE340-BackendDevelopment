@@ -21,7 +21,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
 
 
 /* ***************************
- *  Build inventory: Assignment 3
+ *  Build inventorybyId
  * ************************** */
 invCont.buildByInventoryId = async function (req, res, next) {
   try{
@@ -49,5 +49,6 @@ invCont.buildByInventoryId = async function (req, res, next) {
     }
   }
 
+  // error from route code: "throw new error"
 
 module.exports = invCont
