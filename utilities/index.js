@@ -77,11 +77,11 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 // HTML connection to vehicle information
 const html = `
   <div class="vehicle">
-    <h2>${vehicleData.make} ${vehicleData.model}</h2>
-    <h2>Price: ${numberFormatter.format(vehicleData.price)}</h2>
-    <p>Year: ${vehicleData.year}</p>
-    <p>Color: ${vehicleData.color}</p>
-    <p>Mileage: ${numberFormatter.format(vehicleData.mileage)}</p>
+    <h2>${vehicleData.inv_make} ${vehicleData.inv_model}</h2>
+    <h2>Price: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_price)}</h2>
+    <p>Year: ${vehicleData.inv_year}</p>
+    <p>Color: ${vehicleData.inv_color}</p>
+    <p>Mileage: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_mileage)}</p>
   </div>
 `;
 
