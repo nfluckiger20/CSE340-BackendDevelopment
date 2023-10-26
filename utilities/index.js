@@ -79,6 +79,7 @@ const html = `
   <div class="vehicle">
     <h2>${vehicleData.inv_make} ${vehicleData.inv_model}</h2>
     <h2>Price: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_price)}</h2>
+    <p>Image: ${vehicleData.inv_image}</p>
     <p>Year: ${vehicleData.inv_year}</p>
     <p>Color: ${vehicleData.inv_color}</p>
     <p>Mileage: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_mileage)}</p>

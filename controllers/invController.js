@@ -49,6 +49,4 @@ invCont.buildByInventoryId = async function (req, res, next) {
     }
   }
 
-  // error from route code: "throw new error"
-
 module.exports = invCont
