@@ -78,14 +78,14 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 const html = `
   <div class="vehicle">
     <h2>${vehicleData.make} ${vehicleData.model}</h2>
-    <h3>Price: ${vehicleData.price}</h3>
+    <h3>Price: ${numberFormatter.format(vehicleData.price)}</h3>
     <p>Year: ${vehicleData.year}</p>
     <p>Color: ${vehicleData.color}</p>
-    <p>Mileage: ${vehicleData.mileage}</p>
+    <p>Mileage: ${numberFormatter.format(vehicleData.mileage)}</p>
   </div>
 `;
 
-// Set up price in activities and mileage 
+// Set up price in activities and mileage - check view
 return html;
 }
 

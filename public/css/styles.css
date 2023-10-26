@@ -25,7 +25,6 @@ header a{
  }
 
  nav{
-  color:white;
   background-color: black;
   padding:10px;
   position: relative;
@@ -41,6 +40,10 @@ header a{
  nav li{
   display:inline;
   margin-right:20px;
+ }
+
+ nav li a{
+  color: white !important;
  }
 
  /* body - DMC Deloarean */
