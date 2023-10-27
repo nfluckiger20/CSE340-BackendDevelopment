@@ -101,6 +101,7 @@ header a{
  .grid-container {
   display: grid;
   gap: 50px;
+  width: 50%;
   justify-content: center; 
 }
 
@@ -194,7 +195,7 @@ header a{
 #upgrades img{
   position: relative;
   bottom: 0px;
-  padding: .6em;
+  padding: 0 50px;
 }
 
 
