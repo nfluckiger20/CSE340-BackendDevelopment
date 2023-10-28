@@ -64,16 +64,8 @@ header a{
   margin-top:-220px;
  }
 
- #dmc{
-  color:#61B8B7;
-  opacity: none;
-  margin-left:-30px;
- }
-
- #dmcheader{
-  color:#61B8B7;
-  opacity: none;
-  margin-left:10px;
+ #dmcheader, #dmc{
+  padding-left: 25px;
  }
 
  #button{
@@ -261,19 +253,15 @@ header a{
    }
   
    img#car{
-    margin-left: 100px;
+    margin-left: 200px;
    }
 
    #dmc{
-    margin-left:10px;
-   }
-
-   #dmcheader{
-    margin-left:50px;
+    margin-left:5px;
    }
   
    #button{
-    margin-left:50px;
+    margin-left: 25px;
    }
 
    #reviews{
