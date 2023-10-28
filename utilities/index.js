@@ -78,11 +78,11 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 const html = `
   <div class="vehicle">
     <h2>${vehicleData.inv_make} ${vehicleData.inv_model}</h2>
-    <h2>Price: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_price)}</h2>
+    <h2 class="price">Price: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_price)}</h2>
     <img src=${vehicleData.inv_image}></img>
-    <p>Year: ${vehicleData.inv_year}</p>
-    <p>Color: ${vehicleData.inv_color}</p>
-    <p>Mileage: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_mileage)}</p>
+    <p class="year">Year: ${vehicleData.inv_year}</p>
+    <p class="color">Color: ${vehicleData.inv_color}</p>
+    <p class="mileage">Mileage: ${new Intl.NumberFormat('en-US').format(vehicleData.inv_mileage)}</p>
   </div>
 `;
 

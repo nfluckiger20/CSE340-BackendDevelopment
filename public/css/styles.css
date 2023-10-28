@@ -210,7 +210,32 @@ header a{
 
 /* footer */
 .copyright{
-  margin-top: 100px;
+  margin-top: 120px;
+  margin-left: 25px;
+}
+
+/* vehicle-grid */
+.vehicle h2{
+  margin-left: 600px;
+  margin-bottom: -37px;
+}
+
+.vehicle p{
+  margin-left: 600px;
+  line-height: 30px;
+}
+
+.year{
+  margin-top: -150px;
+}
+
+.vehicle img{
+  position: relative;
+  margin-top: -25px;
+}
+
+.price{
+  margin-top: 50px;
 }
 
 /* On screens that are 600px or more, set the background color to olive */
