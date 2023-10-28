@@ -214,7 +214,7 @@ header a{
   margin-left: 25px;
 }
 
-/* vehicle-grid */
+/* vehicle-individual inventory pages */
 .vehicle h2{
   margin-left: 600px;
   margin-bottom: -37px;
@@ -237,6 +237,19 @@ header a{
 
 .price{
   margin-top: 50px;
+}
+
+/* vehicle inventory grid */
+#inv-display{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inv-display img{
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50%;
+  width: 80%;
 }
 
 /* On screens that are 600px or more, set the background color to olive */
