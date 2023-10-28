@@ -232,6 +232,7 @@ header a{
 .vehicle img{
   position: relative;
   margin-top: -25px;
+  width: 40%;
 }
 
 .price{
