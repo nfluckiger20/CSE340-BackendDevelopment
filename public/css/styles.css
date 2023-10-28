@@ -9,6 +9,7 @@
 header a{
   text-decoration: none;
   color: black;
+  margin-left: 25px;
 }
 .siteName {
   font-size: 50px;
@@ -17,6 +18,8 @@ header a{
 #tools{
   font-size: 20px;
   float: right;
+  margin-right: 40px;
+  margin-top: 25px;
 }
 
 /* navigation */
@@ -54,6 +57,7 @@ header a{
 
  h1{
   font-size: 30px;
+  margin-left: 10px;
  }
 
  #list{
@@ -201,6 +205,7 @@ header a{
 
 #upgradesh1{
   text-align: left;
+  margin-left: 10px;
 }
 
 /* footer */
