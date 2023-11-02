@@ -1,0 +1,32 @@
+<!-- Login form -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  
+  <% if (message) { %>
+    <div class="flash-message">
+      <p><%= message %></p>
+    </div>
+  <% } %>
+
+  <form action="/account/login" method="POST">
+    <label for="account_email">Email:</label>
+    <input type="email" id="account_email" name="account_email" required>
+
+    <label for="account_password">Password:</label>
+    <input type="password" id="account_password" name="account_password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p>No account? <a href="/account/register">Register</a></p>
+
+  <!-- Add Account link here-->
+  <p><a href="/account/login">My Account</a></p>
+</body>
+</html>

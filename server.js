@@ -15,6 +15,8 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController.js")
 const utilities = require("./utilities")
 const inventoryRoute = require("./routes/inventoryRoute.js")
+const accountRoute = require('./routes/accountRoute');
+const bodyParser = require("body-parser")
 
 /* ***********************
  * Middleware
@@ -29,6 +31,8 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // Express Messages Middleware
 app.use(require('connect-flash')())
@@ -53,6 +57,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 
 // Inventory routes
 app.use("/inv", inventoryRoute);
+
+// Account route - Assignment 4
+app.use("/account", require("./routes/accountRoute"))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
