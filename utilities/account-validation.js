@@ -2,8 +2,6 @@ const utilities = require(".")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 const accountModel = require("../models/account-model")
-const registrationRules = validate.registrationRules();
-const loginRules = validate.LoginRules();
 
 /*  **********************************
  *  Registration Data Validation Rules
@@ -22,7 +20,7 @@ validate.registrationRules = () => {
         .isLength({ min: 2 })
         .withMessage("Please provide a last name."), // on error this message is sent.
   
-      // valid email is required and cannot already exist in the DB
+      // valid email is required and cannot already exist in the database
       body("account_email")
       .trim()
       .isEmail()
@@ -117,4 +115,4 @@ validate.checkLogData = async (req, res, next) => {
   next()
 }
    
-module.exports = { registrationRules, checkRegData, LoginRules, checkLogData};
+module.exports = validate;
