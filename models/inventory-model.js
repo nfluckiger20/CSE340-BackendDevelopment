@@ -43,5 +43,14 @@ catch (error) {
 }
 }
 
+//Add classification to DB
+async function newClassification (classificationName){
+  try {
+    const sql = "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *"
+    return await pool.query(sql, [classificationName])
+  } catch (error) {
+    return error.message
+  }
+}
 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryById};
+module.exports = {getClassifications, getInventoryByClassificationId, newClassification, getInventoryById};
