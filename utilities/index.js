@@ -96,4 +96,7 @@ Util.getInventoryGrid = async function(inv_id){
   return {data,detailView};
 }
 
+// Build Dropmenu
+// getDropmenu
+
 module.exports = Util

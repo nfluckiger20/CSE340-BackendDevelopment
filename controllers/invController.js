@@ -49,15 +49,16 @@ invCont.buildByInventoryId = async function (req, res, next) {
   }
 
 // Build the inventory management view
-invCont.buildInvManager = async function (req,res,next) {
+invCont.buildInvManage = async function (req,res,next) {
   let nav = await utilities.getNav()
   const table = await invModel.getClassifications()
-  let dropmenu = await utilities.getClass(table)
+  // let dropmenu = await utilities.getDropmenu(table)
   res.render("./inventory/management", {
     title: "Manage Vehicles",
     nav,
     errors: null,
-    dropmenu,
+    // dropmenu,
+    message:null,
   })
 }
 
