@@ -97,6 +97,25 @@ Util.getInventoryGrid = async function(inv_id){
 }
 
 // Build Dropmenu
-// getDropmenu
+Util.getDropmenu = async function(accountId = null) {
+  try {
+    const data = await accModel.getAccount();
+    const selectOptions = data.rows.map(row => {
+      const isSelected = accountId === row.accountId ? "selected" : "";
+      return `<option value="${row.accountId}" ${isSelected}>${row.accountFirstname} ${row.accountLastname}</option>`;
+    });
+
+    const selectHTML = `
+      <select name='message_to' id='accountNames'>
+        <option value=''>Choose an email recipient</option>
+        ${selectOptions.join('\n')}
+      </select>`;
+
+    return selectHTML;
+  } catch (error) {
+    console.error("Error fetching account names:", error);
+    return ""; 
+  }
+};
 
 module.exports = Util

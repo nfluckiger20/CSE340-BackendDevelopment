@@ -4,15 +4,19 @@
       res.redirect('/')
     } %>
 
-<% if (flash && flash.message) { %>
-    <div class="flash-message">
-        <%= flash.message %>
-    </div>
-<% } %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
 
-<p><a href="/inventory/addClassification">Add New Classification</a></p>
+<%- messages() %>
+
+<p><a href="addClassification.ejs">Add New Classification</a></p>
 <p><a href="/inventory/addInventory">Add New Inventory</a></p>
 <h2>Manage Vehicles</h2>
 <p>Select an item from the list.</p>
-<!-- <%- dropmenu %> -->
+<%- dropmenu %>
 <table id="invTable"></table>

@@ -52,12 +52,12 @@ invCont.buildByInventoryId = async function (req, res, next) {
 invCont.buildInvManage = async function (req,res,next) {
   let nav = await utilities.getNav()
   const table = await invModel.getClassifications()
-  // let dropmenu = await utilities.getDropmenu(table)
+  let dropmenu = await utilities.getDropmenu(table)
   res.render("./inventory/management", {
     title: "Manage Vehicles",
     nav,
     errors: null,
-    // dropmenu,
+    dropmenu,
     message:null,
   })
 }
@@ -74,17 +74,17 @@ invCont.buildNewClassification = async function (req,res,next) {
 
   // Process New Classification
 invCont.newClassification = async function(req,res){
-  const {classificationName} = req.body
+  const {classification_name} = req.body
 
   const regResult = await invModel.newClassification(
-    classificationName
+    classification_name
   )
 
   if (regResult) {
     let nav = await utilities.getNav()
     req.flash(
       "Success",
-      `You've succesfully added ${classificationName}!`
+      `You've succesfully added ${classification_name}!`
     )
     res.status(201).render("inventory/management", {
       title: "Manage Vehicles",

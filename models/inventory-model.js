@@ -44,10 +44,10 @@ catch (error) {
 }
 
 //Add classification to DB
-async function newClassification (classificationName){
+async function newClassification (classification_name){
   try {
     const sql = "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *"
-    return await pool.query(sql, [classificationName])
+    return await pool.query(sql, [classification_name])
   } catch (error) {
     return error.message
   }

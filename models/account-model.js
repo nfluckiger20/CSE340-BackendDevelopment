@@ -25,4 +25,9 @@ async function checkExistingEmail(account_email){
     }
   }
 
-  module.exports = {registerAccount, checkExistingEmail};
+  // Get the account names for the dropdown
+async function getAccount(){
+  return await pool.query('SELECT * FROM public.account ORDER BY account_firstname, account_lastname')
+}
+
+  module.exports = {registerAccount, getAccount, checkExistingEmail};
