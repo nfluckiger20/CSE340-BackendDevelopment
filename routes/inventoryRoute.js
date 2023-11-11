@@ -8,7 +8,7 @@ const utilities = require("../utilities/index")
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
 // Display classification view
-router.post("/addClassification", invController.buildNewClassification);
+router.get("/addClassification", invController.buildNewClassification);
 router.post("/addClass", invController.newClassification);
 
 // Assignment 3 inventory route
