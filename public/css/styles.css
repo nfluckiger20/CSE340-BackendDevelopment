@@ -31,6 +31,16 @@ input:focus:invalid {
     background-color: #E4FFE2;
   }
 
+/* Manage Classification and Inventory */
+.add{
+  padding-left: 15px;
+}
+
+ /* Classification Form */
+#manage{
+padding-left: 22px;
+}
+
 /* header */
 header a{
   text-decoration: none;
