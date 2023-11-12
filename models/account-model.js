@@ -30,4 +30,15 @@ async function getAccount(){
   return await pool.query('SELECT * FROM public.account ORDER BY account_firstname, account_lastname')
 }
 
-  module.exports = {registerAccount, getAccount, checkExistingEmail};
+// Check existing make
+async function checkExistingMake(inv_make){
+  try {
+    const sql = "SELECT * FROM inventory WHERE inv_make = $1"
+    const email = await pool.query(sql, [inv_make])
+    return email.rowCount
+  } catch (error) {
+    return error.message
+  }
+}
+
+  module.exports = {registerAccount, getAccount, checkExistingEmail, checkExistingMake};
