@@ -96,4 +96,21 @@ Util.getInventoryGrid = async function(inv_id){
   return {data,detailView};
 }
 
+// Get Dropdown for add inventory
+Util.getDropdown = async function(data, classification_id){
+  let container = '<select name="classification_id" id="class-dropdown">'
+  container += '<option value="">Select a Classification</option>'
+  for (let i = 0; i < data.length; i++) {
+    console.log(classification_id)
+    container += `<option value="${data[i].classification_id}"
+    ${classification_id === Number(data[i].classification_id)? 'selected': ''}
+    > 
+    ${data[i].classification_name}</option>`;
+  }
+  
+  container += `</select>`
+  return container
+
+}
+
 module.exports = Util

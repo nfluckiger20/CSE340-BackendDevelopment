@@ -19,20 +19,26 @@
         <fieldset>
         <label for="inventory_form">
           <h2 id="inv_highlight"><b>Please complete the required fields:</h2>
-            <label id="manage" for="inventory_form">Make:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Model:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Year:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Description:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Price:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Miles:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
-            <label id="manage" for="inventory_form">Color:</label>
-            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+
+            <%- dropdown %> <br>
+            <label id="manage" for="inventory_form">Make</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" pattern="[A-Za-z]{3,}" required value="<%= locals.inv_make%>"><br>
+            <label id="manage" for="inventory_form">Model</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" pattern="[A-Za-z]{3,}" required value="<%= locals.inv_model%>"><br>
+            <label id="manage" for="inventory_form">Description</label> <br>
+            <textarea id="inventory_form" name="inventory_form" required ><%= locals.inv_description%></textarea><br>
+            <label id="manage" for="inventory_form">Image:</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" required value="<%= locals.inv_image%>"><br>
+            <label id="manage" for="inventory_form">Thumbnail:</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" required value="<%= locals.inv_thumbnail%>"><br>
+            <label id="manage" for="inventory_form">Price:</label><br>
+            <input type="text" id="inventory_form" pattern="[0-9.]*" name="inventory_form" placeholder="Please only use integers or decimals"required value="<%= locals.inv_price%>"><br>
+            <label id="manage" for="inventory_form">Year:</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" minlength="4" maxlength="4" required value="<%= locals.inv_year%>"><br>
+            <label id="manage" for="inventory_form">Miles:</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" pattern="[0-9.]*" placeholder="Please only use integers or decimals" required value="<%= locals.inv_miles%>"><br>
+            <label id="manage" for="inventory_form">Color:</label><br>
+            <input type="text" id="inventory_form" name="inventory_form" required value="<%= locals.inv_color%>"><br>    
 
             <p id="inv_highlight">All images of new inventory should be sent to: csemotors@byui.edu</p>
             <button id="button" type="submit">Add New Inventory</button> </b>
