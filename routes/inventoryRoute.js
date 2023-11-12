@@ -13,6 +13,7 @@ router.post("/addClass", invController.newClassification);
 
 // Assignment 3 inventory route
 router.get("/detail/:inv_id", utilities.handleErrors(invController.buildByInventoryId));
+router.get("/addInventory", invController.buildNewInventory);
 
 // Deliver managment view
 router.get("/", utilities.handleErrors(invController.buildInvManage));

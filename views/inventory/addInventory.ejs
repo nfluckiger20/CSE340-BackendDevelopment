@@ -1,0 +1,41 @@
+<% if (title) { %>
+    <h1> <%= title %> </h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<!-- Handle errors -->
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<%- messages() %>
+  
+    <form id="inventory_form" action="/inventory/addInventory" method="POST">
+        <fieldset>
+        <label for="inventory_form">
+          <h2 id="inv_highlight"><b>Please complete the required fields:</h2>
+            <label id="manage" for="inventory_form">Make:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Model:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Year:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Description:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Price:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Miles:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+            <label id="manage" for="inventory_form">Color:</label>
+            <input type="text" name="inventory_form" id="inventory_form" required><br><br>
+
+            <p id="inv_highlight">All images of new inventory should be sent to: csemotors@byui.edu</p>
+            <button id="button" type="submit">Add New Inventory</button> </b>
+        </label>
+        </fieldset> 
+    </form>

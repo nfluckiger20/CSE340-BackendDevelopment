@@ -36,9 +36,18 @@ input:focus:invalid {
   padding-left: 15px;
 }
 
- /* Classification Form */
+ /* And Classification and Add Inventory Form */
 #manage{
 padding-left: 22px;
+}
+
+#inv_highlight{
+  color:rgb(121, 53, 53);
+}
+
+#inventory_form, #classification_name{
+  width: 80%;
+  padding-left:50px;
 }
 
 /* header */
@@ -108,7 +117,7 @@ header a{
   background-color: #61B8B7;
   border: 1px solid gray;
   height:30px;
-  width:100px;
+  width:165px;
   margin-left:10px;
  }
 

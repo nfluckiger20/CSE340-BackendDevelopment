@@ -69,7 +69,7 @@ invCont.buildNewClassification = async function (req,res,next) {
   })
 }
 
-  // Process New Classification
+  // Process Add New Classification
 invCont.newClassification = async function(req,res){
   const {classification_name} = req.body
 
@@ -94,6 +94,46 @@ invCont.newClassification = async function(req,res){
     )
     res.status(501).render("inventory/addClassification", {
       title: "New Classification",
+      nav,
+    })
+  }
+}
+
+//   Build view for adding inventory
+invCont.buildNewInventory = async function (req,res,next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/addInventory", {
+    title: "New Inventory",
+    nav,
+    errors: null,
+  })
+}
+
+  // Process Add New Inventory
+invCont.newInventory = async function(req,res){
+  const {new_inv} = req.body
+
+  const regResult = await invModel.newInventory(
+    new_inv
+  )
+
+  if (regResult) {
+    let nav = await utilities.getNav()
+    req.flash(
+      "Success",
+      `You've succesfully added ${new_inv}!`
+    )
+    res.status(201).render("inventory/management", {
+      title: "Manage Vehicles",
+      nav,
+      errors:null,
+    })
+  } else {
+    req.flash("error", 
+    "Inventory not found."
+    )
+    res.status(501).render("inventory/addInventory", {
+      title: "New Inventory",
       nav,
     })
   }
