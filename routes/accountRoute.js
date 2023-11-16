@@ -14,13 +14,13 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin))
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
 // router.post('/register', utilities.handleErrors(accountController.registerAccount))
 
-// Process the login attempt
+// Process the login request
 router.post(
-    "/login",
-    (req, res) => {
-      res.status(200).send('login process')
-    }
-  ),
+  "/login",
+  regValidate.LoginRules(),
+  regValidate.checkLogData,
+  utilities.handleErrors(accountController.accountLogin)
+)
   
 // Process the registration data
 router.post(
