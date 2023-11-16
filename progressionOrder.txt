@@ -1,0 +1,18 @@
+Routes
+ - Make sure that every redirect, render, and post is connected to the proper route. (redirect is connected to routes, render is connected to views)
+ - Make sure it follows the proper middleware and error handling order (see classifcation for example)
+
+Controllers
+ - Make sure controllers are exported and have the correct names that are being used in the routes.
+ - Make sure all needed files are imported from the correct models, utilities
+ 
+ - Stop if you see that you a controller uses a model or function found in another file to go look at that file
+
+Models 
+ - Check classifcation model for example
+
+Validation/Utilties
+ - Check classification rules and classification data functions for example.
+   (chat gpt add validation for:
+   watch numbers and file type)
+   Pass all form items inplace of classification_name

@@ -30,4 +30,8 @@ router.post(
   utilities.handleErrors(accountController.registerAccount)
 )
 
+// Add account management = accountController.buildManagement
+// Check name. may be different than buildManagement 
+// router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
+
 module.exports = router

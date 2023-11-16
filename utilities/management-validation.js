@@ -3,6 +3,31 @@ const { body, validationResult } = require("express-validator")
 const validate = {}
 const accountModel = require("../models/account-model")
 
+
+validate.classifcationRules = () => {
+  return [
+    body("classification_name")
+      .isLength({ min: 3})
+      .withMessage("Please provide a valid classification name.")
+  ]
+}
+
+validate.checkClassificationData = async (req, res, next) => {
+  const {classification_name } = req.body;
+  let errors = [];
+  errors = validationResult(req);
+  if (!errors.isEmpty()){
+    res.render("./inventory/addClassification", {
+      errors,
+      title: "New Classification",
+      nav,
+      classification_name
+    });
+    return;
+  }
+  next();
+}
+
 validate.InvRules = () => {
     return[
       body("inv_make")
@@ -34,5 +59,6 @@ validate.checkInvData = async (req, res, next) => {
   }
   next()
 }
+// pass all form items inplace of classification_name
    
 module.exports = validate;
