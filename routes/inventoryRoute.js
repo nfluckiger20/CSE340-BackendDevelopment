@@ -12,6 +12,10 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 router.get("/addClassification", invController.buildNewClassification);
 router.post("/addClassification", validate.classifcationRules(), validate.checkClassificationData, utilities.handleErrors(invController.newClassification));
 
+// Display inventory view
+router.get("/addInventory", invController.buildNewInventory);
+router.post("/addClassification", validate.classifcationRules(), validate.checkInvData, utilities.handleErrors(invController.newInventory));
+
 // Assignment 3 inventory route
 router.get("/detail/:inv_id", utilities.handleErrors(invController.buildByInventoryId));
 router.get("/addInventory", invController.buildNewInventory);

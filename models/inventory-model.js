@@ -53,4 +53,34 @@ async function newClassification (classification_name){
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, newClassification, getInventoryById};
+// Add inventory to DB
+async function newInventory(inv_make, inv_model, inv_image, inv_thumbnail, inv_price, inv_year, inv_mileage, inv_color) {
+  try {
+    // Validate price and mileage as a number
+    if (isNaN(inv_price) || isNaN(inv_mileage)) {
+      throw new Error("inv_price and inv_mileage must be valid numbers");
+    }
+
+    // Validate images and thumbnail file extension
+    const allowedImageExtensions = ['jpeg', 'jpg', 'png'];
+    const imageExtension = inv_image.split('.').pop().toLowerCase();
+    const thumbnailExtension = inv_thumbnail.split('.').pop().toLowerCase();
+    
+    if (!allowedImageExtensions.includes(imageExtension) || !allowedImageExtensions.includes(thumbnailExtension)) {
+      throw new Error("Only jpeg, jpg, and png are allowed for inv_image and inv_thumbnail");
+    }
+
+    // If all validations pass, insert into the database
+    const sql = "INSERT INTO inventory (inv_make, inv_model, inv_price, inv_image, inv_thumbnail, inv_year, inv_mileage, inv_color) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *";
+    return await pool.query(sql, [inv_make, inv_model, inv_price, inv_image, inv_thumbnail, inv_year, inv_mileage, inv_color]);
+  } catch (error) {
+    return error.message;
+  }
+}
+
+// Example:
+// validateInventory("Toyota", "Camry", 25000, "image.jpg")
+//   .then(result => console.log(result))
+//   .catch(error => console.error(error));
+
+module.exports = {getClassifications, getInventoryByClassificationId, newClassification, newInventory, getInventoryById};
