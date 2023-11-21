@@ -13,6 +13,4 @@ Models
 
 Validation/Utilties
  - Check classification rules and classification data functions for example.
-   (chat gpt add validation for:
-   watch numbers and file type)
    Pass all form items inplace of classification_name
