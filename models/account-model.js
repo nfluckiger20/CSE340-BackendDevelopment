@@ -55,4 +55,4 @@ async function getAccountByEmail (account_email) {
   }
 }
 
-  module.exports = {registerAccount, getAccount, checkExistingEmail, checkExistingMake};
+  module.exports = {registerAccount, getAccount, checkExistingEmail, checkExistingMake, getAccountByEmail};
