@@ -150,4 +150,15 @@ Util.checkLogin = (req, res, next) => {
   }
  }
 
+//  Assignment 5 Task 2: Midelware to check account type
+//  Util.checkAccountType = (req, res, next) => {
+//   const account_type = res.locals.accountData.account_type
+//   if(account_type === 'Employee' || account_type === 'Admin'){
+//     next()
+//   } else {
+//     req.flash('Notice', `You do not have access to this page.`)
+//     res.redirect("/account/login")
+//   }
+// }
+
 module.exports = Util

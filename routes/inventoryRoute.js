@@ -20,8 +20,10 @@ router.post("/addClassification", validate.classifcationRules(), validate.checkI
 router.get("/detail/:inv_id", utilities.handleErrors(invController.buildByInventoryId));
 router.get("/addInventory", invController.buildNewInventory);
 
-// Deliver managment view
-router.get("/", utilities.handleErrors(invController.buildInvManage));
+// Deliver managment view (Assignment 5: Account Type)
+router.get("/", 
+// utilities.checkAccountType,
+utilities.handleErrors(invController.buildInvManage));
 
 // Table in the management view
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
