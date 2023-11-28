@@ -105,11 +105,14 @@ invCont.buildNewInventory = async function (req,res,next) {
   let nav = await utilities.getNav()
   const table = await invModel.getClassifications()
   const dropdown = await utilities.getDropdown(table.rows)
+  const classificationSelect = await utilities.buildClassificationGrid()
+
   res.render("./inventory/addInventory", {
     title: "New Inventory",
     nav,
     dropdown,
     errors: null,
+    classificationSelect,
   })
 }
 
@@ -140,6 +143,19 @@ invCont.newInventory = async function(req,res){
       title: "New Inventory",
       nav,
     })
+  }
+}
+
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
   }
 }
 

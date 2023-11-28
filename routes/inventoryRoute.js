@@ -23,4 +23,7 @@ router.get("/addInventory", invController.buildNewInventory);
 // Deliver managment view
 router.get("/", utilities.handleErrors(invController.buildInvManage));
 
+// Table in the management view
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
 module.exports = router;
