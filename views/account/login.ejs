@@ -17,12 +17,12 @@
   <form id="loginForm" action="/account/login" method="POST">
 
     <label for="account_email">Email:</label>
-    <input type="email" id="login_email" name="login_email" required placeholder="Enter a valid email address"><br><br>
+    <input type="email" id="login_email" name="account_email" required placeholder="Enter a valid email address" value="<%= locals.account_email %>"><br><br>
 
     <label for="account_password">Password:</label>
-    <input type="password" id="login_password" name="login_password" required><br><br>
+    <input type="password" id="login_password" name="account_password" required><br><br>
 
-    <button type="submit">Login</button><br>
+    <input type="submit" value="Login"><br>
   </form>
 
   <p>No account? <a href="/account/register">Register</a></p>

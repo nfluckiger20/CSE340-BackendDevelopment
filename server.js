@@ -43,8 +43,6 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
-// app.use(utilities.checkJWTToken) //Assignment 5 Task 2: JWT
-
 
 /* ***********************
  * View Engine and Templates
