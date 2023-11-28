@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+/* Login and Register Form */
+#loginForm{
+  width: 100%;
+}
+
 /* Registration Form */
 #register_form:invalid {
   border: 2px solid red;

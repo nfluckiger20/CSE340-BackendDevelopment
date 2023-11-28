@@ -85,7 +85,11 @@ async function accountLogin(req, res) {
   const { account_email, account_password } = req.body
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
-   req.flash("notice", "Please check your credentials and try again.")
+    req.flash(
+      "Success",
+      `Congratulations, ${account_email} You're logged in!`
+    )
+
    res.status(400).render("account/login", {
     title: "Login",
     nav,
@@ -116,4 +120,4 @@ async function accountManagement(req, res) {
 }
 
 
-  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement };
+  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin };
