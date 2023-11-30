@@ -4,6 +4,7 @@ const router = new express.Router()
 const invController = require("../controllers/invController")
 const utilities = require("../utilities/index")
 const validate = require("../utilities/management-validation")
+const invController = require("../controllers/invController");
 
 // Route to build inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
@@ -27,5 +28,8 @@ utilities.handleErrors(invController.buildInvManage));
 
 // Table in the management view
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+// Route for inventory management (Activity 5)
+router.get("/", utilities.handleErrors(invController.editInventoryView));
 
 module.exports = router;
