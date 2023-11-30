@@ -30,5 +30,6 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 
 // Route for inventory management (Activity 5)
 router.get("/", utilities.handleErrors(invController.editInventoryView));
+router.post("/update/", utilities.handleErrors(invController.updateInventory))
 
 module.exports = router;

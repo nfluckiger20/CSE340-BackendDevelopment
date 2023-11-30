@@ -42,6 +42,11 @@
 
             <p id="inv_highlight">All images of new inventory should be sent to: csemotors@byui.edu</p>
             <button id="button" type="submit">Update Vehicle</button> </b>
+        
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+        
         </label>
         </fieldset> 
     </form>
