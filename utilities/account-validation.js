@@ -62,7 +62,7 @@ validate.checkRegData = async (req, res, next) => {
       nav,
       account_firstname,
       account_lastname,
-      account_email,
+      account_email
     })
     return
   }

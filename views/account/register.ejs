@@ -11,14 +11,15 @@
   <% if (locals.message) { %>
     <div class="flash-message">
       <p><%= message %></p>
-      <% if (errors) { %>
-        <ul class="notice">
-       <% errors.array().forEach(error => { %>
-         <li><%= error.msg %></li>
-      <%  }) %>
-       </ul>
-      <% } %>
     </div>
+  <% } %>
+
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
   <% } %>
 
   <form action="/account/register" method="POST">
