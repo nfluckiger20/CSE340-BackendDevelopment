@@ -86,8 +86,8 @@ async function accountLogin(req, res) {
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
     req.flash(
-      "Success",
-      `Congratulations, ${account_email} You're logged in!`
+      "Failure",
+      `Could not find,: ${account_email} Please ensure you entered the correct email and password.!`
     )
 
    res.status(400).render("account/login", {
@@ -110,14 +110,15 @@ async function accountLogin(req, res) {
   }
  }
 
-//  Process account management request
+// Process account management request
 async function accountManagement(req, res) {
   let nav = await utilities.getNav();
-  res.render("views/account/management", {
-      title: "Account Management",
-      nav,
+  res.render("./account/management", {
+  title: "Account Management",
+  nav,
+  errors: null,
   });
-}
+  }
 
 
   module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin };
