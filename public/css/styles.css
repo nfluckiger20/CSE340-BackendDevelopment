@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+#welcome{
+  padding-left: 18px;
+}
+
 /* Login and Register Form */
 #loginForm{
   width: 100%;

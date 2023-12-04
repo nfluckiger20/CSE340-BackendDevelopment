@@ -28,8 +28,13 @@ utilities.handleErrors(invController.buildInvManage));
 // Table in the management view
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
-// Route for inventory management (Activity 5)
-router.get("/", utilities.handleErrors(invController.editInventoryView));
-router.post("/update/", utilities.handleErrors(invController.updateInventory))
+// Route for inventory management - update/edit vehicle information (Activity 5)
+router.get("/", utilities.handleErrors(invController.editInventoryView))
+
+router.post(
+    "/editInventory/", 
+    validate.invRules(),
+    validate.checkUpdateData,
+    utilities.handleErrors((invController.updateInventory)))
 
 module.exports = router;
