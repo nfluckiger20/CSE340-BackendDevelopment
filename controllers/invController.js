@@ -106,10 +106,13 @@ invCont.newClassification = async function(req,res){
 //   Build view for adding inventory
 invCont.buildNewInventory = async function (req,res,next) {
   let nav = await utilities.getNav()
+  const table = await invModel.getClassifications()
+  const dropdown = await utilities.getDropdown(table.rows)
   res.render("./inventory/addInventory", {
     title: "New Inventory",
     nav,
     errors: null,
+    dropdown,
   })
 }
 
