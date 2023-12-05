@@ -112,8 +112,15 @@ invCont.buildNewInventory = async function (req,res,next) {
     nav,
     dropdown,
     errors: null,
-    classificationSelect,
+    classificationSelect: classificationSelect,
   })
+
+  // res.render("./inventory/editInventory", {
+  //   title: "Edit Inventory",
+  //   nav,
+  //   dropdown,
+  //   errors: null,
+  // })
 }
 
   // Process Add New Inventory
@@ -162,7 +169,7 @@ invCont.getInventoryJSON = async (req, res, next) => {
 /* ***************************
  *  Build edit inventory view
  * ************************** */
-invCont.editInventoryView = async function (req, res, next) {
+invCont.editInventory = async function (req, res, next) {
   const inv_id = parseInt(req.params.inv_id)
   let nav = await utilities.getNav()
   const itemData = await invModel.getInventoryById(inv_id)

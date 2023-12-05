@@ -29,7 +29,7 @@ utilities.handleErrors(invController.buildInvManage));
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 // Route for inventory management - update/edit vehicle information (Activity 5)
-router.get("/", utilities.handleErrors(invController.editInventoryView))
+router.get("/", utilities.handleErrors(invController.editInventory))
 
 router.post(
     "/editInventory/", 
