@@ -119,6 +119,7 @@ Util.getDropdown = async function(data, classification_id){
 * Middleware to check token validity
 **************************************** */
 Util.checkJWTToken = (req, res, next) => {
+  res.locals.loggedin = false;
   if (req.cookies.jwt) {
    jwt.verify(
     req.cookies.jwt,
@@ -130,7 +131,7 @@ Util.checkJWTToken = (req, res, next) => {
       return res.redirect("/account/login")
      }
      res.locals.accountData = accountData
-     res.locals.loggedin = 1
+     res.locals.loggedin = true
      next()
     })
   } else {
@@ -151,14 +152,14 @@ Util.checkLogin = (req, res, next) => {
  }
 
 //  Assignment 5 Task 2: Midelware to check account type
-//  Util.checkAccountType = (req, res, next) => {
-//   const account_type = res.locals.accountData.account_type
-//   if(account_type === 'Employee' || account_type === 'Admin'){
-//     next()
-//   } else {
-//     req.flash('Notice', `You do not have access to this page.`)
-//     res.redirect("/account/login")
-//   }
-// }
+ Util.checkAccountType = (req, res, next) => {
+  const account_type = res.locals.accountData.account_type
+  if(account_type === 'Employee' || account_type === 'Admin'){
+    next()
+  } else {
+    req.flash('Notice', `You do not have access to this page.`)
+    res.redirect("/account/login")
+  }
+}
 
 module.exports = Util

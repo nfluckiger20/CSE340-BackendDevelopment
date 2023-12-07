@@ -22,7 +22,7 @@ router.get("/addInventory", invController.buildNewInventory);
 
 // Deliver managment view (Assignment 5: Account Type)
 router.get("/", 
-// utilities.checkAccountType,
+utilities.checkAccountType,
 utilities.handleErrors(invController.buildInvManage));
 
 // Table in the management view

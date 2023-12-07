@@ -31,8 +31,7 @@ router.post(
 )
 
 // Add account management
-router.get("/", 
-// utilities.checkLogin, 
+router.get("/",
 utilities.handleErrors(accountController.accountManagement))
 
 module.exports = router
