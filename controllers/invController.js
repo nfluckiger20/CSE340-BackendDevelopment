@@ -270,7 +270,7 @@ invCont.deleteInventoryCheck = async function(req, res){
 }
 
 // deliver delete confirmation 
-invCont.deleteInventoryForReal = async function(req, res){
+invCont.deleteInventory = async function(req, res){
   let nav = await utilities.getNav()
 
   const {

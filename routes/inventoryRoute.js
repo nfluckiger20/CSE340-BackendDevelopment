@@ -43,6 +43,6 @@ router.post(
 router.get("/delete/:inv_id", utilities.handleErrors((invController.deleteInventoryCheck)))
 
 // delete vehicle from db
-router.post("/goneForever", utilities.handleErrors((invController.deleteInventoryForReal)))
+router.post("/goneForever", utilities.handleErrors((invController.deleteInventory)))
 
 module.exports = router;
