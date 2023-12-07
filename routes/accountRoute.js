@@ -34,4 +34,14 @@ router.post(
 router.get("/",
 utilities.handleErrors(accountController.accountManagement))
 
+// Logout
+router.get("/logout", 
+utilities.checkLogin,
+utilities.handleErrors(accountController.logout))
+
+// Update Account
+router.get("/updateAccount",
+utilities.checkLogin,
+utilities.handleErrors(accountController.updateAccount))
+
 module.exports = router

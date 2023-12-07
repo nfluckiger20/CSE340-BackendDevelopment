@@ -4,15 +4,28 @@
       res.redirect('/')
     } %>
 
-<% if (errors) { %>
-    <ul class="notice">
-   <% errors.array().forEach(error => { %>
-     <li><%= error.msg %></li>
-  <%  }) %>
-   </ul>
-  <% } %>
+<% if (locals.message) { %>
+  <div notice="flash-message">
+    <p><%= message %></p>
+  </div>
+<% } %>
+
+<% if (locals.errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
 
 <%- messages() %>
 
-<h1>Welcome to Your Account</h1>
-<p id="welcome">You're logged in!</p>
+<h2>Welcome to Your Account, <%= locals.accountData.account_firstname %></h2>
+
+<% if (locals.accountData.account_type == 'Employee' || locals.accountData.account_type == 'Admin') { %>
+  <h3>Inventory Management</h3>
+  <a href="/inv/">Click here to manage inventory</a>
+<% } %>
+
+<h3>Account Management</h3>
+  <a href="/account/updateAccount">Click here to manage accounts</a>

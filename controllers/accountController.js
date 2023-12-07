@@ -120,5 +120,19 @@ async function accountManagement(req, res) {
   });
   }
 
+async function logout(req, res) {
+  res.clearCookie("jwt")
+  req.flash("notice", "You have been logged out.")
+  res.redirect("/")
+}
 
-  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin };
+async function updateAccount(req, res) {
+  let nav = await utilities.getNav();
+  res.render("./account/updateAccount", {
+    title: "Update Account",
+    nav,
+    errors: null,
+  });
+}
+
+  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin, logout, updateAccount};
