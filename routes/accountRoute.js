@@ -39,9 +39,16 @@ router.get("/logout",
 utilities.checkLogin,
 utilities.handleErrors(accountController.logout))
 
-// Update Account
+// Update Account View - build view
 router.get("/updateAccount",
 utilities.checkLogin,
 utilities.handleErrors(accountController.updateAccount))
+
+// Update Account View - process request
+router.post("/updateAccount",
+utilities.checkLogin,
+regValidate.updateAccountRules(),
+regValidate.checkUpdateData,
+utilities.handleErrors(accountController.updateAccountForReal))
 
 module.exports = router

@@ -128,11 +128,51 @@ async function logout(req, res) {
 
 async function updateAccount(req, res) {
   let nav = await utilities.getNav();
+  let accountData = res.locals.accountData;
   res.render("./account/updateAccount", {
     title: "Update Account",
     nav,
     errors: null,
-  });
+    account_firstname: accountData.account_firstname,
+    account_lastname: accountData.account_lastname,
+    account_email: accountData.account_email,
+    });
 }
 
-  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin, logout, updateAccount};
+async function updateAccountForReal(req, res) {
+  let nav = await utilities.getNav();
+  const { account_id, account_firstname, account_lastname, account_email } = req.body
+
+  const regResult = await accountModel.updateAccount(
+    account_id,
+    account_firstname,
+    account_lastname,
+    account_email,
+    )
+
+  if (regResult) {
+    req.flash(
+      "notice",
+      `Congratulations, ${account_firstname}. Account has been updated.`
+    )
+    // Before rendering this page, create a variable that sets locals.accountData equal
+    // to a function from the model that gets account by id (after pass through first, last and email)
+    res.status(201).render("./account/management", {
+      title: "Account Management",
+      nav,
+      errors: null,
+    })
+  } else {
+    req.flash("notice", "Sorry, update failed.")
+    res.status(501).render("./account/updateAccount", {
+      title: "Update Account",
+      nav,
+      errors: null,
+      account_firstname, 
+      account_lastname, 
+      account_email
+    })
+  }
+}
+
+  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin, logout, updateAccount, updateAccountForReal};
