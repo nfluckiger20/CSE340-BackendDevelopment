@@ -89,30 +89,49 @@ validate.checkInvData = async (req, res, next) => {
   next();
 };
 
-// Errors will be reflected back to the edit view
+
+/* ******************************
+ * Check updated Vehicle Data -- VALIDATE
+ * ***************************** */
 validate.checkUpdateData = async (req, res, next) => {
-  const { inv_id, inv_make, inv_model, inv_price, inv_image, inv_thumbnail, inv_year, inv_mileage, inv_color } = req.body;
-  let errors = validationResult(req);
+  const { 
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color,
+    inv_id
+  } = req.body
 
+  let errors = []
+  errors = validationResult(req)
   if (!errors.isEmpty()) {
-    res.render("./inventory/editInventory", {
-      errors,
-      title: "Update Inventory",
-      nav,
-      inv_id, 
-      inv_make,
-      inv_model,
-      inv_price,
-      inv_image,
-      inv_thumbnail,
-      inv_year,
-      inv_mileage,
-      inv_color
-    });
-    return;
-  }
+      let nav = await utilities.getNav()
+      const table = await invModel.getClassifications()
+      let dropdown = await utilities.getDropdown(table.rows)
 
-  next();
-};
+      const itemName = `${table[0].inv_make} ${table[0].inv_model}`
+      res.render("inventory/editInventory", {
+          errors,
+          title: "Edit" + itemName,
+          dropdown,
+          nav,
+          inv_make,
+          inv_model,
+          inv_description,
+          inv_price,
+          inv_year,
+          inv_miles,
+          inv_color,
+          inv_id 
+      })
+      return
+  }
+  next()
+
+}
+
    
 module.exports = validate;

@@ -38,4 +38,11 @@ router.post(
     validate.checkUpdateData,
     utilities.handleErrors((invController.updateInventory)))
 
+
+    // delete vehicle from db confirmation view route
+router.get("/delete/:inv_id", utilities.handleErrors((invController.deleteInventoryCheck)))
+
+// delete vehicle from db
+router.post("/goneForever", utilities.handleErrors((invController.deleteInventoryForReal)))
+
 module.exports = router;
