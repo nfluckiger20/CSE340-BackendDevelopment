@@ -172,19 +172,19 @@ invCont.editInventory = async function (req, res, next) {
   res.render("./inventory/editInventory", {
     title: "Edit " + itemName,
     nav,
-    dropdown,    
+    dropdown,
     errors: null,
-    inv_id: itemData[0].inv_id,
-    inv_make: itemData[0].inv_make,
-    inv_model: itemData[0].inv_model,
-    inv_year: itemData[0].inv_year,
-    inv_description: itemData[0].inv_description,
-    inv_image: itemData[0].inv_image,
-    inv_thumbnail: itemData[0].inv_thumbnail,
-    inv_price: itemData[0].inv_price,
-    inv_miles: itemData[0].inv_miles,
-    inv_color: itemData[0].inv_color,
-    classification_id: itemData[0].classification_id
+    inv_id: itemData.inv_id,
+    inv_make: itemData.inv_make,
+    inv_model: itemData.inv_model,
+    inv_year: itemData.inv_year,
+    inv_description: itemData.inv_description,
+    inv_image: itemData.inv_image,
+    inv_thumbnail: itemData.inv_thumbnail,
+    inv_price: itemData.inv_price,
+    inv_miles: itemData.inv_miles,
+    inv_color: itemData.inv_color,
+    classification_id: itemData.classification_id
   })
 }
 
@@ -208,6 +208,7 @@ invCont.updateInventory = async function (req, res, next) {
     inv_color,
     classification_id,
   } = req.body
+  
   const updateResult = await invModel.updateInventory(
     inv_id,  
     inv_make,
@@ -254,19 +255,17 @@ invCont.updateInventory = async function (req, res, next) {
 invCont.deleteInventoryCheck = async function(req, res){
   let nav = await utilities.getNav()
   const inv_id = parseInt(req.params.inv_id)
-
-  const invData = await invModel.getInventoryByInvId(inv_id)
-
+  const invData = await invModel.getInventoryById(inv_id)
   const itemName = `${invData[0].inv_make} ${invData[0].inv_model}`
   res.render("./inventory/delete-confirm", {
     title: "Delete " + itemName,
     nav,
     errors: null,
-    inv_id: invData[0].inv_id,
-    inv_make: invData[0].inv_make,
-    inv_model: invData[0].inv_model,
-    inv_year: invData[0].inv_year,
-    inv_price: invData[0].inv_price,
+    inv_id: invData.inv_id,
+    inv_make: invData.inv_make,
+    inv_model: invData.inv_model,
+    inv_year: invData.inv_year,
+    inv_price: invData.inv_price,
   })
 }
 
@@ -290,7 +289,7 @@ invCont.deleteInventoryForReal = async function(req, res){
   }  = req.body
 
 
-  const dataResult = await invModel.deleteInventory(
+  const dataResult = await invModel.deleteInventoryItem(
     inv_id,
     inv_make,
     inv_model,
@@ -304,8 +303,6 @@ invCont.deleteInventoryForReal = async function(req, res){
     classification_id, 
   )
 
-  console.log(dataResult)
-
   if (dataResult) {
     const itemName = inv_make + " " + inv_model
     req.flash("success", `The ${itemName} was deleted.`)
@@ -316,7 +313,7 @@ invCont.deleteInventoryForReal = async function(req, res){
     res.status(501).render("inventory/delete-confirm", {
     title: "Delete " + itemName,
     nav,
-    classificationSelect: classificationSelect,
+    dropdown: classificationSelect,
     errors: null,
     inv_id,
     inv_make,
