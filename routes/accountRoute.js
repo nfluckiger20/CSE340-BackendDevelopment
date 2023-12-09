@@ -51,4 +51,11 @@ regValidate.updateAccountRules(),
 regValidate.checkUpdateData,
 utilities.handleErrors(accountController.updateAccountForReal))
 
+// Update Account View - password
+router.post("/updatePassword",
+utilities.checkLogin,
+regValidate.updatePasswordRules(),
+regValidate.checkUpdatePassword,
+utilities.handleErrors(accountController.updatePassword))
+
 module.exports = router

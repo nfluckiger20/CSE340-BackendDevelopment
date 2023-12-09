@@ -175,4 +175,49 @@ async function updateAccountForReal(req, res) {
   }
 }
 
-  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin, logout, updateAccount, updateAccountForReal};
+// Update Password
+async function updatePassword(req, res, next) {
+  let nav = await utilities.getNav()
+  let {accountData} = res.locals
+  let { account_password } = req.body
+  let hashedPassword
+  try {
+      hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+      req.flash("notice", 'Sorry, there was an error changing account info.')
+      res.status(500).render("account/updateAccount", {
+          title: "Update Account",
+          nav,
+          errors: null,
+      })
+  }
+  const updateResult = await accountModel.updatePassword(
+      hashedPassword, accountData.account_id
+  )
+  if (updateResult) {
+      res.locals.accountData = await accountModel.getAccount(accountData.account_id)
+      let accountData1 = res.locals.accountData
+      req.flash("notice", "Password has been updated.")
+      res.status(201).render("./account/updateAccount", {
+          title: "Account Management",
+          nav,
+          errors: null,
+          accountData1
+      })
+  } else {
+      req.flash("notice", "Update failed. Please try again.")
+      res.status(501).render("account/updateAccount", {
+          title: "Update Account",
+          nav,
+          errors: null,
+      })
+  }
+}
+
+async function accountLogout(req, res) {
+  res.clearCookie("jwt")
+  req.flash("notice", "You're logged out.")
+  res.redirect("/")
+}
+
+  module.exports = { buildLogin, buildRegister,registerAccount, accountManagement, accountLogin, logout, updateAccount, updateAccountForReal, updatePassword, accountLogout};

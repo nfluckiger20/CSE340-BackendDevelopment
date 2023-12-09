@@ -141,7 +141,25 @@ validate.updateAccountRules = () => {
   ]
 };
 
-   
+validate.checkUpdateData = async (req, res, next) => {
+  const { account_firstname, account_lastname, account_email } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/updateAccount", {
+      errors,
+      title: "Update",
+      nav,
+      account_firstname,
+      account_lastname,
+      account_email
+    })
+    return
+  }
+  next()
+}
+
 /*  **********************************
  *  Update Password
  * ********************************* */
@@ -161,21 +179,19 @@ validate.updatePasswordRules = () => {
 ]
 };
 
-validate.checkUpdateData = async (req, res, next) => {
-  const { account_firstname, account_lastname, account_email } = req.body
+validate.checkUpdatePassword = async (req, res, next) => {
+  const { account_password } = req.body
   let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
-    let nav = await utilities.getNav()
-    res.render("account/updateAccount", {
-      errors,
-      title: "Update",
-      nav,
-      account_firstname,
-      account_lastname,
-      account_email
-    })
-    return
+      let nav = await utilities.getNav()
+      res.render("account/updateAccount", {
+          errors,
+          title: "Update Account",
+          nav,
+          account_password,
+      })
+      return
   }
   next()
 }
